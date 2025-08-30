@@ -1,0 +1,27 @@
+$bp: (
+  sm: 640px,
+  md: 768px,
+  lg: 1024px,
+  xl: 1280px,
+);
+
+@mixin biggerThan($name) {
+  @media (min-width: map-get($bp, $name)) {
+    @content;
+  }
+}
+
+@mixin smallerThan($name) {
+  $max: map-get($bp, $name);
+  @media (max-width: calc(#{$max} - 0.02px)) {
+    @content;
+  }
+}
+
+@mixin between($from, $to) {
+  $min: map-get($bp, $from);
+  $max: map-get($bp, $to);
+  @media (min-width: $min) and (max-width: calc(#{$max} - 0.02px)) {
+    @content;
+  }
+}

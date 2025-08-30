@@ -2,6 +2,7 @@
 ---
 
 @import 'normalize';
+@import 'breakpoints';
 
 body {
   font-family: 'Funnel Display', sans-serif;
@@ -23,10 +24,14 @@ a {
 .container {
   width: 100%;
   min-height: 100vh;
-  padding: 4rem 5rem 3rem;
+  padding: 3rem;
   box-sizing: border-box;
   display: flex;
   flex-flow: column nowrap;
+
+  @include biggerThan(sm) {
+    padding: 4rem 5rem 3rem;
+  }
 }
 
 .page-footer {
@@ -42,8 +47,12 @@ a {
 .home-page {
   .home-layout {
     display: flex;
-    flex-flow: row nowrap;
+    flex-flow: column nowrap;
     flex: 1 1 auto;
+
+    @include biggerThan(sm) {
+      flex-flow: row nowrap;
+    }
 
     .self-intro {
       display: flex;
@@ -51,7 +60,11 @@ a {
       align-items: flex-start;
       justify-content: flex-start;
       height: 100%;
-      width: 300px;
+      width: 100%;
+
+      @include biggerThan(sm) {
+        width: 300px;
+      }
 
       .name {
         font-size: 2rem;
@@ -68,11 +81,18 @@ a {
     .main-content {
       flex: 1 1 auto;
       box-sizing: border-box;
-      padding: 0 2rem;
       max-width: 1200px;
 
+      @include biggerThan(sm) {
+        padding: 0 2rem;
+      }
+
       .post {
-        margin-bottom: 3rem;
+        margin: 1rem 0;
+
+        @include biggerThan(sm) {
+          margin-bottom: 3rem;
+        }
 
         .post-header {
           font-size: 1.5rem;
@@ -87,6 +107,7 @@ a {
 
         .post-content {
           color: #666;
+          line-height: 130%;
         }
       }
     }
