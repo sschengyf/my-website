@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    {% include meta.html page_title=page.title %}
+  </head>
+  <body class="container post-page">
+    <div class="post-layout">
+      <header>
+        <nav class="navigation-bar">
+          <a href="/">Home</a>
+        </nav>
+      </header>
+      <article class="post">
+        <header>
+          <h1 class="post-title">{{ page.title }}</h1>
+          <p class="post-meta">{{ page.date | date: "%B %d, %Y" }}</p>
+        </header>
+        <section class="post-content">{{ content }}</section>
+      </article>
+    </div>
+    {% include footer.html %}
+  </body>
+</html>
