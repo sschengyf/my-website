@@ -91,6 +91,7 @@ a {
         margin: 1rem 0;
 
         @include biggerThan(sm) {
+          margin-top: 0;
           margin-bottom: 3rem;
         }
 
