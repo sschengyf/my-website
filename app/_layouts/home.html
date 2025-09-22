@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    {% include meta.html page_title=page.title %}
+  </head>
+  <body class="container home-page">
+    <div class="home-layout">
+      <aside class="self-intro">
+        <h1 class="name">{{page.title}}</h1>
+        <div class="about">
+          <pre><code>&lt;me coder cook coffee-drinker /&gt;</code></pre>
+        </div>
+      </aside>
+      <main class="main-content">{{ content }}</main>
+    </div>
+    {% include footer.html %}
+  </body>
+</html>
