@@ -121,11 +121,16 @@ a {
   }
 
   .post {
-    .post-title {
-      font-size: 1.75rem;
-      font-weight: 700;
+    .post-header {
       margin-bottom: 1rem;
+
+      .post-title {
+        font-size: 1.75rem;
+        font-weight: 700;
+        margin-bottom: 1rem;
+      }
     }
+
     .post-content {
       line-height: 150%;
       h1,
