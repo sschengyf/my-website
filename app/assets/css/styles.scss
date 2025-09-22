@@ -141,3 +141,17 @@ a {
     }
   }
 }
+
+.page-layout {
+  flex: 1 1 auto;
+
+  .page-title {
+    font-size: 1.75rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+  }
+}
+
+.page-404 {
+  line-height: 107%;
+}
