@@ -11,7 +11,7 @@ case "$MODE" in
       jekyll new . --force
       bundle install
     else
-      echo "⚠️  Jekyll site already exists. Skipping init."
+      echo "⚠️ Jekyll site already exists. Skipping init."
     fi
     ;;
 
@@ -22,9 +22,15 @@ case "$MODE" in
     ;;
 
   build)
-    echo "🏗️  Building static site..."
+    echo "🏗️ Building static site..."
     bundle install
     exec bundle exec jekyll build "$@"
+    ;;
+
+  post|draft|publish)
+    echo "📝 Running jekyll-compose command: $MODE $@"
+    bundle install
+    exec bundle exec jekyll $MODE "$@"
     ;;
 
   *)
