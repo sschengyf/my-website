@@ -31,8 +31,10 @@ jobs:
         with:
           ruby-version: '3.3'
           bundler-cache: true # installs gems and caches them
+          working-directory: app
 
       - name: Build Jekyll
+        working-directory: app
         run: |
           bundle exec jekyll build --trace
 
