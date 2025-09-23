@@ -1,0 +1,51 @@
+name: Build & Deploy Jekyll to GCS
+
+on:
+  push:
+    branches: [master]
+  workflow_dispatch:
+
+# Cancel in-progress runs on the same branch when a new one starts
+concurrency:
+  group: deploy-${{ github.ref }}
+  cancel-in-progress: true
+
+permissions:
+  contents: read
+  id-token: write # required for Workload Identity Federation
+
+env:
+  GCS_BUCKET: ${{ vars.GCS_BUCKET }}
+  JEKYLL_ENV: production
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Ruby
+        uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: '3.3'
+          bundler-cache: true # installs gems and caches them
+
+      - name: Build Jekyll
+        run: |
+          bundle exec jekyll build --trace
+
+      - name: Authenticate to Google Cloud (WIF)
+        uses: google-github-actions/auth@v2
+        with:
+          workload_identity_provider: ${{ secrets.GCP_WORKLOAD_IDENTITY_PROVIDER }}
+          service_account: ${{ secrets.GCP_SERVICE_ACCOUNT_EMAIL }}
+          token_format: 'access_token'
+
+      - name: Set up gcloud SDK
+        uses: google-github-actions/setup-gcloud@v2
+
+      - name: Deploy to GCS
+        run: |
+          gsutil -m rsync -r -d -c app/_site gs://${GCS_BUCKET}
