@@ -1,7 +1,7 @@
 ---
 layout: post
 title: '为何要写作'
-caption: '人的思想就像一座不停演化的模型，而写作，是我为它留下的片刻注解。'
+caption: '人的思想就像一座不停演化的模型，而写作，是我为它留下的片刻注释。'
 author: Ivan Cheng
 date: 2025-09-24 00:24 +0000
 categories: Writing
