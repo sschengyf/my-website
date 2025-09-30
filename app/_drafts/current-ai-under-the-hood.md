@@ -1,6 +1,7 @@
 ---
 layout: post
 title: Current AI Under the hood
+caption: 'AI的葫芦里到底卖的什么药。'
 author: Ivan Cheng
 categories: AI Technology
 tags: AI
