@@ -1,5 +1,6 @@
 .DS_Store
 .vscode/
+cmd
 
 # Jekyll build output
 _site/
