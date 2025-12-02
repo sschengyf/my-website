@@ -16,12 +16,12 @@ docker run -p 4000:4000 -v $(pwd)/app:/usr/src/app jekyll-website serve
 docker run -v $(pwd)/app:/usr/src/app jekyll-website build
 
 # Creates a new post with the given NAME
-docker run -v $(pwd)/app:/usr/src/app jekyll-website post
+docker run -v $(pwd)/app:/usr/src/app jekyll-website post "$NAME"
 
 # Creates a new draft post with the given NAME
-docker run -v $(pwd)/app:/usr/src/app jekyll-website draft
+docker run -v $(pwd)/app:/usr/src/app jekyll-website draft "$NAME"
 
 # Moves a draft into the _posts directory and sets the date
-docker run -v $(pwd)/app:/usr/src/app jekyll-website publish
+docker run -v $(pwd)/app:/usr/src/app jekyll-website publish _drafts/$FILE_NAME
 
 ```
