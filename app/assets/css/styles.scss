@@ -3,6 +3,8 @@
 
 @import 'normalize';
 @import 'breakpoints';
+@import 'code-block';
+@import 'list';
 
 body {
   font-family: 'Funnel Display', sans-serif;
@@ -20,6 +22,11 @@ a {
     text-decoration-color: #333;
     text-underline-offset: 4px;
   }
+}
+
+img {
+  max-width: 100%;
+  height: auto;
 }
 
 .container {

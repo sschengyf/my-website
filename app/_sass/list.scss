@@ -1,0 +1,61 @@
+/* =========================================
+   List Styling (ul, ol)
+   Note: This file depends on the $list-bullet-color variable being defined/imported elsewhere.
+   ========================================= */
+
+$list-bullet-color: #333;
+
+ul,
+ol {
+  // Add vertical space above and below the list
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  padding-left: 25px; // Ensure there's enough room for bullets/numbers
+
+  // Ensure nested lists have standard spacing
+  ul,
+  ol {
+    margin-top: 0.5rem;
+    margin-bottom: 0.5rem;
+  }
+
+  // Standard list item styling
+  li {
+    line-height: 1.6;
+    margin-bottom: 0.5rem;
+  }
+}
+
+// Unordered Lists (Bulleted)
+ul {
+  list-style-type: none; // Remove default browser bullet
+
+  // Custom bullet style
+  li {
+    position: relative;
+    padding-left: 15px; // Space for the custom bullet
+
+    // The custom bullet dot
+    &::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 0.7em; // Adjust vertical alignment
+      width: 6px;
+      height: 6px;
+      background-color: $list-bullet-color;
+      border-radius: 50%;
+    }
+  }
+}
+
+// Ordered Lists (Numbered)
+ol {
+  list-style-type: decimal; // Keep default numbering
+
+  // Make the numbers the accent color
+  li::marker {
+    color: $list-bullet-color;
+    font-weight: bold;
+  }
+}
