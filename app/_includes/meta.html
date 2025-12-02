@@ -28,3 +28,23 @@
   href="https://fonts.googleapis.com/css2?family=Funnel+Display:wght@300..800&display=swap"
   rel="stylesheet"
 />
+{% if page.math %}
+<script>
+  window.MathJax = {
+    tex: {
+      inlineMath: [
+        ['$', '$'],
+        ['\\(', '\\)'],
+      ],
+      displayMath: [
+        ['$$', '$$'],
+        ['\\[', '\\]'],
+      ],
+    },
+  };
+</script>
+<script
+  async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"
+></script>
+{% endif %}

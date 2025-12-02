@@ -151,6 +151,16 @@ a {
         margin-bottom: 1rem;
       }
     }
+
+    /* Standard Blockquote Styling */
+    blockquote {
+      border-left: 4px solid #dddddd; /* The classic vertical grey bar */
+      padding-left: 15px; /* Space between bar and text */
+      margin-left: 0; /* Reset browser default indentation */
+      margin-right: 0; /* Reset browser default indentation */
+      color: #666666; /* Slightly lighter text color */
+      font-style: italic; /* Optional: Italicize the text */
+    }
   }
 }
 
