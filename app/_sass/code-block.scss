@@ -3,7 +3,7 @@ $code-bg: #1e1e1e; // Dark Grey Background
 $code-text: #d4d4d4; // Light Grey Text
 $code-border: #333;
 $scrollbar-thumb: #555;
-$inline-code-bg: #f0f0f0;
+$inline-code-bg: #e0e0e0;
 
 // Syntax Highlighting Colors (GitHub Dark-inspired)
 $syntax-comment: #6a9955;
@@ -13,7 +13,7 @@ $syntax-number: #b5cea8;
 $syntax-function: #dcdcaa;
 $syntax-variable: #9cdcfe;
 $syntax-tag: #569cd6;
-$syntax-inline-contrast: #d63384; // Pinkish red for inline code text
+$syntax-inline-contrast: #333; // Pinkish red for inline code text
 
 /* =========================================
    1. The Container (The Box)
@@ -59,8 +59,6 @@ pre {
   color: $syntax-inline-contrast;
   padding: 0.2em 0.4em;
   border-radius: 4px;
-  font-family: monospace;
-  font-size: 0.9em;
 }
 
 /* =========================================
