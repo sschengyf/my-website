@@ -52,3 +52,4 @@ jobs:
       - name: Deploy to GCS
         run: |
           gsutil -m rsync -r -d -c app/_site gs://${GCS_BUCKET}
+          gsutil -m setmeta -h "Cache-Control:public, max-age=300" gs://${GCS_BUCKET}/**
