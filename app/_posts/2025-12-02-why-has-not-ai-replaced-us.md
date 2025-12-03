@@ -31,7 +31,7 @@ math: true
 
 ![AI path](/assets/imgs/ai-path.jpg)
 
-机器学习（machine learning），简单来说就是让机器使用算法去学习我们提供的训练数据从而寻找数据里的规律（pattern），然后让机器用找到的规律来识别新的数据并做出预测和判断。这样做相较于一般的基于规则编写的计算机程序，虽然牺牲了一些准确性，但得到了更好的灵活性，在现实世界里，很多场景是不可能完全靠人力来提前预设所有变量并制定相应规则，图像识别是一个经典的例子，也就是说机器学习为我们提供了一个当前主流的基于规则系统（Rule Based System）之外的选择。
+机器学习（machine learning），简单来说就是让机器使用算法去学习我们提供的训练数据从而寻找数据里的规律（pattern），然后让机器用找到的规律来识别新的数据并做出预测和判断。这样做相较于一般的基于规则编写的计算机程序，虽然牺牲了一些准确性，并且还存在结果不可预测性，但得到了更好的灵活性，在现实世界里，很多场景是不可能完全靠人力来提前预设所有变量并制定相应规则，图像识别是一个经典的例子，也就是说机器学习为我们提供了一个当前主流的基于规则系统（Rule Based System）之外的选择。
 
 ![Neural Network](/assets/imgs/neural-network.png)
 
@@ -120,7 +120,9 @@ $$
 朋友 → 一位
 ```
 
-多头注意力就像有多个“聚光灯”同时照亮句子的不同语法关系，从而完整理解句子的结构和含义，而且多头注意力的运算是并行的，因此多头注意力的运算并不比单头注意力运算慢。实际的架构中头数更多，像 GPT-3 有 96 个头。
+多头注意力就像有多个“聚光灯”同时照亮句子的不同语法关系，从而完整理解句子的结构和含义，而且多头注意力的运算是并行的，因此多头注意力的运算并不比单头注意力运算慢。实际的架构中头数更多，例如 GPT-3 有 96 个头。经过多头注意力的计算之后得到“理解了上下文”向量，然后把该向量投入模型之中，经过模型神经网络的层层传递，最后选取可能性最高的令牌作为预测结果。其中的过程我省略了很多步骤和结构。
+
+综上所述，神经网络就是进行概率预测，Transformer 架构的出现，使模型具备了理解上下文的能力，从而能够预测语言。看似神奇的效果并非魔法，只是海量的参数与复杂结构，使得模型的预测机制难以被我们完全解释。
 
 ## 缺乏价值观
 
@@ -160,4 +162,4 @@ $$
 - [The 7 Types of AI - And Why We Talk (Mostly) About 3 of Them](https://www.youtube.com/watch?v=XFZ-rQ8eeR8)
 - [What is machine learning?](https://www.ibm.com/think/topics/machine-learning#7281535)
 - [Neural Networks and Deep Learning](http://neuralnetworksanddeeplearning.com/index.html)
-- [Project Vend: Can Claude run a small shop? ](https://www.anthropic.com/research/project-vend-1)
+- [Project Vend: Can Claude run a small shop?](https://www.anthropic.com/research/project-vend-1)
