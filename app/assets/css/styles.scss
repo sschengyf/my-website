@@ -3,7 +3,6 @@
 
 @import 'normalize';
 @import 'breakpoints';
-@import 'code-block';
 @import 'list';
 
 body {
@@ -26,6 +25,7 @@ a {
 
 img {
   max-width: 100%;
+  max-height: 450px;
   height: auto;
 }
 
