@@ -44,8 +44,10 @@ cd app && bundle install && bundle exec jekyll serve --livereload
 - `app/_layouts/` — two layouts: `home.html` (landing page with self-intro sidebar) and `post.html` (article view with back-nav). All layouts use dynamic `lang` attribute via `page.lang | default: site.lang`
 - `app/_includes/` — `meta.html` (shared `<head>` with SEO tags: description, canonical, Open Graph, Twitter Card) and `footer.html`
 - `app/robots.txt` — allows all crawlers and references the sitemap URL
-- `app/_sass/` — partials imported by the CSS entry points: `breakpoints.scss`, `normalize.scss`, `list.scss`, `code-block.scss`
-- `app/assets/css/` — two SCSS entry points: `styles.scss` (home page) and `post.scss` (post pages)
+- `app/_sass/` — SCSS partials (not compiled directly)
+- `app/assets/css/` — two SCSS entry points compiled by Jekyll:
+  - `styles.scss` — imports `normalize`, `breakpoints`, `list`; contains all layout and page styles (home, post, page, 404)
+  - `post.scss` — imports `code-block` only; loaded exclusively on post pages for code syntax styles
 - `app/_site/` — generated output, not committed
 
 ## Post Front Matter
@@ -63,3 +65,22 @@ lang: zh  # set for non-English posts; defaults to site.lang (en)
 ```
 
 The `caption` field is rendered on the home page (`index.html`) via `{{ post.caption }}` and also used as the SEO meta description. Posts are sorted by date descending; the home page shows the 3 most recent.
+
+Multiple categories produce a nested URL — e.g. `categories: Technology AI` generates `/technology/ai/title/`.
+
+## Draft workflow
+
+```sh
+# Create a draft (saved to app/_drafts/)
+docker run -v $(pwd)/app:/usr/src/app jekyll-website draft "$NAME"
+
+# Publish a draft (moves to app/_posts/ with today's date)
+docker run -v $(pwd)/app:/usr/src/app jekyll-website publish _drafts/$FILE_NAME
+```
+
+Do not create posts directly in `_posts/` without the `YYYY-MM-DD-` filename prefix — Jekyll will error or skip them.
+
+## Caveats
+
+- `_config.yml` changes require a server restart — they are not picked up by live reload.
+- Adding a new gem to `Gemfile` does not require a manual `bundle install` — the Docker entrypoint handles it automatically on next run.
