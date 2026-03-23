@@ -3,7 +3,14 @@
   name="viewport"
   content="width=device-width, height=device-height, initial-scale=1.0, minimum-scale=1.0"
 />
-<title>{{ include.page_title }}</title>
+<title>{% if include.page_title %}{{ include.page_title }} | {{ site.title }}{% else %}{{ site.title }}{% endif %}</title>
+<meta name="description" content="{% if page.caption %}{{ page.caption }}{% elsif page.excerpt %}{{ page.excerpt | strip_html | truncatewords: 30 }}{% else %}{{ site.description }}{% endif %}" />
+<link rel="canonical" href="{{ site.url }}{{ page.url }}" />
+<meta property="og:title" content="{% if include.page_title %}{{ include.page_title }}{% else %}{{ site.title }}{% endif %}" />
+<meta property="og:description" content="{% if page.caption %}{{ page.caption }}{% else %}{{ site.description }}{% endif %}" />
+<meta property="og:type" content="{% if page.layout == 'post' %}article{% else %}website{% endif %}" />
+<meta property="og:url" content="{{ site.url }}{{ page.url }}" />
+<meta name="twitter:card" content="summary" />
 <link
   rel="apple-touch-icon"
   sizes="180x180"
