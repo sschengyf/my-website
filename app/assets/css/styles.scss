@@ -85,6 +85,15 @@ img {
         font-size: 1.2rem;
         color: #666;
       }
+
+      .bio {
+        margin-top: 0.5rem;
+        line-height: 130%;
+        display: none;
+        @include biggerThan(sm) {
+          display: block;
+        }
+      }
     }
 
     .main-content {
