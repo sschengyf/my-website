@@ -193,3 +193,16 @@ img {
 .page-404 {
   line-height: 107%;
 }
+
+.tool-list {
+  li {
+    display: flex;
+    align-items: baseline;
+    gap: 1rem;
+
+    span {
+      color: #666;
+      font-size: 0.95rem;
+    }
+  }
+}
