@@ -9,13 +9,11 @@
         <h1 class="name">{{page.title}}</h1>
         <div class="about">
           <pre><code>&lt;me coder cook coffee-drinker /&gt;</code></pre>
-          <p class="bio">
-            Through courage and wisdom, transcending fear and greed to find the
-            rational self.
-          </p>
+          <div class="bio-desktop">{% include bio.html %}</div>
         </div>
       </aside>
       <main class="main-content">{{ content }}</main>
+      <div class="bio-mobile">{% include bio.html %}</div>
     </div>
     {% include footer.html %}
   </body>

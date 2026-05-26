@@ -86,9 +86,9 @@ img {
         color: #666;
       }
 
-      .bio {
-        margin-top: 0.5rem;
-        line-height: 130%;
+      .bio-desktop {
+        margin-top: 1rem;
+        font-size: 1.1rem;
         display: none;
         @include biggerThan(sm) {
           display: block;
@@ -132,7 +132,19 @@ img {
         }
       }
     }
+    .bio-mobile {
+      font-size: 1rem;
+      margin: 1rem 0 -1rem;
+      display: block;
+      @include biggerThan(sm) {
+        display: none;
+      }
+    }
   }
+}
+
+.bio {
+  line-height: 130%;
 }
 
 .post-page {
