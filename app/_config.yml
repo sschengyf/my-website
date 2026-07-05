@@ -64,3 +64,7 @@ remark42:
   host: https://comments.ivancheng.xyz
   site_id: ivancheng
   enabled: true
+  simple_view: true
+  no_footer: true
+  show_email_subscription: false
+  show_rss_subscription: false
