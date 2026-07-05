@@ -1,0 +1,11 @@
+services:
+  remark42:
+    image: ghcr.io/umputun/remark42:v1.15.0
+    container_name: remark42
+    restart: unless-stopped
+    ports:
+      - '127.0.0.1:8080:8080'
+    env_file:
+      - .env
+    volumes:
+      - ./var:/srv/var

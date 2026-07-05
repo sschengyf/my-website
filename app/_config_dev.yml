@@ -1,0 +1,4 @@
+# Local development overrides (merged when serving via Docker)
+url: http://127.0.0.1:4000
+remark42:
+  host: http://127.0.0.1:8080

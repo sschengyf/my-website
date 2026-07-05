@@ -58,3 +58,9 @@ sass:
   style: compressed
 
 permalink: /:categories/:title/
+
+# Remark42 comments
+remark42:
+  host: https://comments.ivancheng.xyz
+  site_id: ivancheng
+  enabled: true

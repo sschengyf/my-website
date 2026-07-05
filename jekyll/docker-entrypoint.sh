@@ -18,7 +18,8 @@ case "$MODE" in
   serve)
     echo "🚀 Starting local server at http://localhost:4000"
     bundle install
-    exec bundle exec jekyll serve --livereload --host 0.0.0.0 --force_polling "$@"
+    exec bundle exec jekyll serve --livereload --host 0.0.0.0 --force_polling \
+      --config _config.yml,_config_dev.yml "$@"
     ;;
 
   build)

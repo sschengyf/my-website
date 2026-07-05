@@ -22,3 +22,6 @@ Gemfile.lock
 # Environment & config
 .env
 .env.local
+remark42/.env
+remark42/.env.prod
+remark42/var/
