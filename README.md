@@ -9,8 +9,11 @@ docker build -t jekyll-website ./jekyll
 # Init a website
 docker run -v $(pwd)/app:/usr/src/app jekyll-website init
 
-# Serve a website for local dev
+# Serve a website for local dev (uses _config_dev.yml for local Remark42)
 docker run -p 4000:4000 -v $(pwd)/app:/usr/src/app jekyll-website serve
+
+# Remark42 locally (in another terminal)
+cd remark42 && docker compose up -d
 
 # Export the static website
 docker run -v $(pwd)/app:/usr/src/app jekyll-website build
