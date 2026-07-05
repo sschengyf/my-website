@@ -190,9 +190,56 @@ img {
       font-style: italic; /* Optional: Italicize the text */
     }
 
+    .post-nav {
+      display: flex;
+      justify-content: space-between;
+      gap: 1.5rem;
+      margin-top: 2.5rem;
+      padding: 1.5rem 0;
+      border-top: 1px solid #dddddd;
+    }
+
+    .post-nav-link {
+      display: flex;
+      flex-direction: column;
+      gap: 0.25rem;
+      max-width: 45%;
+    }
+
+    .post-nav-spacer {
+      flex: 1;
+    }
+
+    .post-nav-prev .post-nav-label::before {
+      content: '← ';
+    }
+
+    .post-nav-next {
+      text-align: right;
+      margin-left: auto;
+    }
+
+    .post-nav-next .post-nav-label::after {
+      content: ' →';
+    }
+
+    .post-nav-label {
+      font-size: 0.85rem;
+      color: #666;
+    }
+
+    .post-nav-title {
+      font-weight: 600;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+
     .post-comments {
       margin-top: 2.5rem;
-      padding-top: 1.5rem;
+    }
+
+    .post-content + .post-comments {
       border-top: 1px solid #dddddd;
     }
   }

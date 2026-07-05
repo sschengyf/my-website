@@ -1,26 +1,54 @@
 {% assign r = site.remark42 %}
 {% if r.host and r.site_id %}
 <script>
-  var remark_config = {
+  function remark42Locale() {
+    const supported = {
+      en: 1, be: 1, bp: 1, bg: 1, zh: 1, fi: 1, fr: 1, de: 1, ja: 1, ko: 1,
+      pl: 1, ru: 1, es: 1, tr: 1, ua: 1, it: 1, vi: 1,
+    };
+    const list = navigator.languages?.length
+      ? [...navigator.languages]
+      : [navigator.language || 'en'];
+    for (const raw of list) {
+      const tag = String(raw).toLowerCase();
+      if (tag.startsWith('zh')) return 'zh';
+      if (tag.startsWith('pt-br') || tag === 'pt_br') return 'bp';
+      if (tag.startsWith('uk')) return 'ua';
+      const base = tag.split('-')[0];
+      if (supported[base]) return base;
+    }
+    return 'en';
+  }
+
+  // Remark42 embed.mjs reads window.remark_config (not lexical const/var)
+  window.remark_config = {
     host: {{ r.host | jsonify }},
     site_id: {{ r.site_id | jsonify }},
     url: {{ site.url | append: page.url | jsonify }},
-    {% if page.lang %}locale: {{ page.lang | jsonify }},{% endif %}
-    max_shown_comments: 100,
+    locale: remark42Locale(),
     theme: 'light',
+    simple_view: {{ r.simple_view | jsonify }},
+    no_footer: {{ r.no_footer | jsonify }},
+    show_email_subscription: {{ r.show_email_subscription | jsonify }},
+    show_rss_subscription: {{ r.show_rss_subscription | jsonify }},
   };
-</script>
-<script>
-  !(function (e, n) {
-    for (var o = 0; o < e.length; o++) {
-      var r = n.createElement('script'),
-        c = '.js',
-        d = n.head || n.body;
-      'noModule' in r ? ((r.type = 'module'), (c = '.mjs')) : ((r.async = !0), (r.defer = !0)),
-        (r.src = remark_config.host + '/web/' + e[o] + c),
-        d.appendChild(r);
+
+  !(function (components, document) {
+    for (let i = 0; i < components.length; i++) {
+      const script = document.createElement('script');
+      let ext = '.js';
+      const target = document.head || document.body;
+      if ('noModule' in script) {
+        script.type = 'module';
+        ext = '.mjs';
+      } else {
+        script.async = true;
+        script.defer = true;
+      }
+      script.src = window.remark_config.host + '/web/' + components[i] + ext;
+      target.appendChild(script);
     }
-  })(remark_config.components || ['embed'], document);
+  })(window.remark_config.components || ['embed'], document);
 </script>
 <div id="remark42"></div>
 {% endif %}
