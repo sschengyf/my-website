@@ -64,7 +64,7 @@ lang: zh  # set for non-English posts; defaults to site.lang (en)
 ---
 ```
 
-The `caption` field is rendered on the home page (`index.html`) via `{{ post.caption }}` and also used as the SEO meta description. Posts are sorted by date descending; the home page shows the 3 most recent.
+The `caption` field is rendered on the home page (`index.html`) via `{{ post.caption }}` and also used as the SEO meta description. Posts are sorted by date descending; the home page lists all posts.
 
 Categories are metadata only; post URLs use `/:title/` (filename slug), e.g. `/why-has-not-ai-replaced-us/`.
 
