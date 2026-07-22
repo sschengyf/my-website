@@ -27,7 +27,7 @@ Environment: `production`
 
 ### Cache headers
 
-Deployed files get `Cache-Control: public, max-age=300` (5 minutes).
+Deployed files get `Cache-Control: public, no-cache`. Browsers may store a copy but must revalidate with GCS (ETag → 304 when unchanged) before reuse, so publishes show up immediately.
 
 ## Remark42
 
