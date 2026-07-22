@@ -18,7 +18,9 @@ Site embed config: [`../app/README.md`](../app/README.md) · Repo overview: [`..
 - GCP Compute Engine VM (e2-micro in `us-central1`, `us-east1`, or `us-west1` for Always Free)
 - DNS A record: `comments.<your-domain>` → VM external IP
 - Firewall rules allowing TCP 80 and 443 to the VM
-- GitHub OAuth app (callback: `https://comments.<your-domain>/auth/github/callback`)
+- At least one OAuth app:
+  - GitHub: callback `https://comments.<your-domain>/auth/github/callback`
+  - Google: see [Google OAuth](#google-oauth) below
 
 Set these shell variables before running the commands below:
 
@@ -107,6 +109,7 @@ See `.env.example`. Required for production:
 | `SECRET` | Random string (`openssl rand -hex 32`) |
 | `SITE` | Site ID, must match `site_id` in Jekyll `_config.yml` |
 | `AUTH_GITHUB_CID` / `AUTH_GITHUB_CSEC` | GitHub OAuth credentials |
+| `AUTH_GOOGLE_CID` / `AUTH_GOOGLE_CSEC` | Google OAuth credentials (optional; can coexist with GitHub) |
 | `AUTH_SAME_SITE` | Set to `none` when the blog and comment server use different origins |
 | `ALLOWED_HOSTS` | Domains allowed to embed the widget (see note below) |
 | `ADMIN_SHARED_ID` | Your GitHub user ID after first login (grants admin) |
@@ -116,6 +119,29 @@ See `.env.example`. Required for production:
 ```bash
 ALLOWED_HOSTS="'self',https://example.com"
 ```
+
+## Google OAuth
+
+1. Create a project at https://console.cloud.google.com/projectcreate
+2. **APIs & Services → OAuth consent screen**
+   - User type: External
+   - App name / support email: your choice
+   - Application home page: `https://ivancheng.xyz` (or your site URL)
+   - Privacy policy: `https://comments.ivancheng.xyz/web/privacy.html`
+   - Authorized domains: `ivancheng.xyz`
+   - Publish the app (or keep Testing and add test users)
+3. **APIs & Services → Credentials → Create credentials → OAuth client ID**
+   - Application type: Web application
+   - Authorized JavaScript origins: `https://comments.ivancheng.xyz`
+   - Authorized redirect URIs: `https://comments.ivancheng.xyz/auth/google/callback`
+4. Put the Client ID / Secret into the VM `.env` as `AUTH_GOOGLE_CID` and `AUTH_GOOGLE_CSEC`, then restart:
+
+```sh
+cd ~/remark42
+sudo docker compose up -d
+```
+
+Google and GitHub can both be enabled; the comment widget shows whichever providers are configured.
 
 ## Admin
 
