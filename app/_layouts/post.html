@@ -17,6 +17,13 @@
           <p class="post-meta">{{ page.date | date: "%B %d, %Y" }}</p>
         </header>
         <section class="post-content">{{ content }}</section>
+        {% if page.tags and page.tags.size > 0 %}
+          <ul class="post-tags">
+            {% for tag in page.tags %}
+              <li class="post-tag">{{ tag }}</li>
+            {% endfor %}
+          </ul>
+        {% endif %}
         {% include post-nav.html %}
         {% if site.remark42.enabled and page.comments != false %}
           <section class="post-comments">
