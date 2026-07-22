@@ -5,14 +5,14 @@ caption: 我们会成为最后的牛马吗？
 author: Ivan Cheng
 categories: Writing AI
 tags:
-  - Entropy
-  - Post Work Society
-  - Identity And Recognition
-  - Motivation Triangle
-  - Decentralized AI
+- Entropy
+- Post Work Society
+- Identity And Recognition
+- Motivation Triangle
+- Decentralized AI
 lang: zh
+date: 2026-07-22 09:13 +0000
 ---
-
 ![The metaphorical elephant in the room](/assets/imgs/elephant-in-the-room.jpg)
 
 前段时间我读了溥仪的自传《我的前半生》，大致了解了这位著名的“末代皇帝”的一些生平。中国改朝换代被废的皇帝那么多，为什么只有他被称为末代皇帝呢？溥仪的退位代表中国帝制的终结，此后中国进入了共和制。于是我想既然时代有始末，落幕时代里的最后那一代人便可以冠以末代的称号。有幸我们身处一个AI登场、旧时代谢幕的时期。过去我们骄傲于能写出一段完美的代码、画出一幅精致的设计图，如今在AI几秒钟的生成速度面前，这种骄傲变成了一种无处安放的惶恐。假如新时代不再需要打工人，作为当代打工人的我们，或许就可称为“末代牛马”。旧时代崩塌了，并不意味着旧时代里的人会消失，AI的出现最终是造福人类还是毁灭社会？这样一头房间里的大象单靠个人和公司甚至政府都无力解决，这需要整个社会的智慧来达成共识，在此之前，我想尝试拆解一下这头大象。
