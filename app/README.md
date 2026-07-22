@@ -33,7 +33,7 @@ comments: false # optional; disable Remark42 on this post
 ---
 ```
 
-**Permalink:** `/:categories/:title/` — multiple categories produce nested URLs (e.g. `categories: Technology AI` → `/technology/ai/title/`).
+**Permalink:** `/:title/` — URL is the post filename slug only (e.g. `why-has-not-ai-replaced-us.md` → `/why-has-not-ai-replaced-us/`). Categories are metadata only and do not appear in the path.
 
 ## Comments
 

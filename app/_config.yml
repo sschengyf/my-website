@@ -57,7 +57,7 @@ exclude:
 sass:
   style: compressed
 
-permalink: /:categories/:title/
+permalink: /:title/
 
 # Remark42 comments
 remark42:
