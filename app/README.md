@@ -6,17 +6,17 @@ Dev environment: [`../jekyll/README.md`](../jekyll/README.md) · Comments: [`../
 
 ## Structure
 
-| Path | Purpose |
-|---|---|
-| `_config.yml` | Site URL, plugins, Remark42 settings |
-| `_config_dev.yml` | Local dev overrides (merged via Docker `serve` only) |
-| `_posts/` | Blog posts — filenames must be `YYYY-MM-DD-title.md` |
-| `_layouts/` | Page templates: `home.html`, `post.html`, `page.html` |
-| `_includes/` | Partials: `meta.html`, `comments.html`, `bio.html`, `footer.html` |
-| `_sass/` | SCSS partials (imported, not compiled directly) |
-| `assets/css/` | SCSS entry points: `styles.scss` (site), `post.scss` (code blocks) |
-| `tools/` | Standalone client-side tools |
-| `index.html` | Home page |
+| Path              | Purpose                                                            |
+| ----------------- | ------------------------------------------------------------------ |
+| `_config.yml`     | Site URL, plugins, Remark42 settings                               |
+| `_config_dev.yml` | Local dev overrides (merged via Docker `serve` only)               |
+| `_posts/`         | Blog posts — filenames must be `YYYY-MM-DD-title.md`               |
+| `_layouts/`       | Page templates: `home.html`, `post.html`, `page.html`              |
+| `_includes/`      | Partials: `meta.html`, `comments.html`, `bio.html`, `footer.html`  |
+| `_sass/`          | SCSS partials (imported, not compiled directly)                    |
+| `assets/css/`     | SCSS entry points: `styles.scss` (site), `post.scss` (code blocks) |
+| `tools/`          | Standalone client-side tools                                       |
+| `index.html`      | Home page                                                          |
 
 ## Post front matter
 
@@ -28,12 +28,12 @@ caption: 'Teaser shown on the home page and in SEO meta'
 author: Ivan Cheng
 date: YYYY-MM-DD HH:MM +0000
 categories: CategoryName
-lang: zh              # optional; defaults to site lang (en)
-comments: false       # optional; disable Remark42 on this post
+lang: zh # optional; defaults to site lang (en)
+comments: false # optional; disable Remark42 on this post
 ---
 ```
 
-**Permalink:** `/:categories/:title/` — multiple categories produce nested URLs (e.g. `categories: Technology AI` → `/technology/ai/title/`).
+**Permalink:** `/:title/` — URL is the post filename slug only (e.g. `why-has-not-ai-replaced-us.md` → `/why-has-not-ai-replaced-us/`). Categories are metadata only and do not appear in the path.
 
 ## Comments
 
@@ -64,7 +64,7 @@ docker run -v $(pwd)/app:/usr/src/app jekyll-website build
 
 Production builds use `_config.yml` only (not `_config_dev.yml`).
 
-## New content
+## New post
 
 ```sh
 docker run -v $(pwd)/app:/usr/src/app jekyll-website post "$NAME"
@@ -73,3 +73,11 @@ docker run -v $(pwd)/app:/usr/src/app jekyll-website publish _drafts/$FILE_NAME
 ```
 
 Drafts live in `_drafts/` until published.
+
+## Preview
+
+Before publish, preview the draft post locally.
+
+```sh
+docker run -p 4000:4000 -v $(pwd)/app:/usr/src/app jekyll-website serve --drafts
+```

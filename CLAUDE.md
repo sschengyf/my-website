@@ -39,7 +39,7 @@ cd app && bundle install && bundle exec jekyll serve --livereload
 
 ## Architecture
 
-- `app/_config.yml` — site config: title, URL (`https://ivancheng.xyz`), default `lang`, permalink pattern (`/:categories/:title/`), and plugins (`jekyll-feed`, `jekyll-sitemap`)
+- `app/_config.yml` — site config: title, URL (`https://ivancheng.xyz`), default `lang`, permalink pattern (`/:title/`), and plugins (`jekyll-feed`, `jekyll-sitemap`)
 - `app/_posts/` — blog posts as Markdown with YAML front matter. Filenames must follow `YYYY-MM-DD-title.md`. Posts use `layout: post`, `categories:`, and a custom `caption:` field shown on the home page
 - `app/_layouts/` — two layouts: `home.html` (landing page with self-intro sidebar) and `post.html` (article view with back-nav). All layouts use dynamic `lang` attribute via `page.lang | default: site.lang`
 - `app/_includes/` — `meta.html` (shared `<head>` with SEO tags: description, canonical, Open Graph, Twitter Card) and `footer.html`
@@ -64,9 +64,9 @@ lang: zh  # set for non-English posts; defaults to site.lang (en)
 ---
 ```
 
-The `caption` field is rendered on the home page (`index.html`) via `{{ post.caption }}` and also used as the SEO meta description. Posts are sorted by date descending; the home page shows the 3 most recent.
+The `caption` field is rendered on the home page (`index.html`) via `{{ post.caption }}` and also used as the SEO meta description. Posts are sorted by date descending; the home page lists all posts.
 
-Multiple categories produce a nested URL — e.g. `categories: Technology AI` generates `/technology/ai/title/`.
+Categories are metadata only; post URLs use `/:title/` (filename slug), e.g. `/why-has-not-ai-replaced-us/`.
 
 ## Draft workflow
 
