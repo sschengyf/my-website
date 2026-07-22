@@ -4,7 +4,13 @@ title: 为何AI仍未取代我们
 caption: 史称“第一次牛马危机”
 author: Ivan Cheng
 categories: Technology AI
-tags: AI
+tags:
+  - Artificial Intelligence
+  - Machine Learning
+  - Transformer
+  - Backpropagation
+  - Multi Head Attention
+  - Connecting People
 lang: zh
 date: 2025-12-02 09:40 +0000
 math: true
