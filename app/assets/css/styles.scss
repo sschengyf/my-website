@@ -86,6 +86,38 @@ img {
         color: #666;
       }
 
+      .social-links {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        gap: 0.75rem;
+        margin-top: 1rem;
+      }
+
+      .social-link {
+        display: inline-flex;
+        color: #666;
+        cursor: pointer;
+        text-decoration: none;
+
+        &:hover,
+        &:active {
+          color: #333;
+          text-decoration: none;
+        }
+
+        &:focus-visible {
+          outline: 2px solid #333;
+          outline-offset: 2px;
+        }
+
+        svg {
+          width: 1.25rem;
+          height: 1.25rem;
+          display: block;
+        }
+      }
+
       .bio-desktop {
         margin-top: 1rem;
         font-size: 1.1rem;
