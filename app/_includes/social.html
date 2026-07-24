@@ -1,0 +1,19 @@
+{% if site.social_links.size > 0 %}
+<nav class="social-links" aria-label="Social links">
+  {% for link in site.social_links %}
+    {% assign is_external = false %}
+    {% if link.url contains '://' %}
+      {% assign is_external = true %}
+    {% endif %}
+    <a
+      class="social-link"
+      href="{% if is_external %}{{ link.url }}{% else %}{{ link.url | relative_url }}{% endif %}"
+      {% if is_external %}target="_blank" rel="noopener noreferrer"{% endif %}
+      aria-label="{{ link.title | escape }}"
+      title="{{ link.title | escape }}"
+    >
+      {% include icons/{{ link.icon }}.html %}
+    </a>
+  {% endfor %}
+</nav>
+{% endif %}
